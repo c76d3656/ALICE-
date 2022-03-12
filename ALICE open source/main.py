@@ -1,5 +1,7 @@
 import re
-
+# 此程序为qq聊天记录处理
+# 请导出聊天记录时选择mht格式
+# 且提前在文件夹中创建target.txt用以存放筛选后结果
 # 只需要修改这两个文件就行
 source_mht = 'chat_info.mht'
 target_txt = 'target.txt'
@@ -8,7 +10,7 @@ target_txt = 'target.txt'
 f = open(source_mht, mode='r+', encoding='UTF-8')
 data = f.readlines()
 new_data = ''
-# 筛选聊天记录中的有效文本
+# 筛选聊天记录中的有效文本(每行)
 for i in data:
     inside = re.findall('<tr><td><div.*color=\'000000\'>(.+?)</font></div></td></tr>', i)
     if inside:  # 不为空则加入data中
